@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+  <title>Document</title>
+</head>
+
+<body class="bg-gray-100">
+  <div class="mx-auto max-w-md mt-5">
+    <div class="bg-blue-500 rounded-t-lg p-5">
+      <h1 class="font-bold text-3xl text-white text-center">BMI calculator</h1>
+    </div>
+    <form class="bg-white shadow-md rounded-b-lg px-8 pt-6 pb-8 mb-4">
+      <div class="mb-4">
+        <label class="block text-gray-700 text-lg font-bold mb-2" for="height">
+          Height (cm)
+        </label>
+        <input id="height" class="text-lg shadow appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="number" placeholder="Enter your height">
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 text-lg font-bold mb-2" for="weight">
+          Weight (kg)
+        </label>
+        <input id="weight" class="text-lg shadow appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="number" placeholder="Enter your weight">
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 text-lg font-bold mb-2" for="weight">
+         Date
+        </label>
+        <input id="date" class="text-lg shadow appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="date">
+      </div>
+
+      <!-- <div>
+        <label class="block text-gray-700 text-lg font-bold mb-2" for="gender">
+          Gender
+        </label>
+        <div class="mb-1">
+          <input type="radio" name="gender" value="male">
+          <label class="text-gray-700 ml-1" for="male">Male</label>
+        </div>
+        <div>
+          <input type="radio" name="gender" value="female">
+          <label class="text-gray-700 ml-1" for="female">Female</label>
+        </div>
+      </div> -->
+
+      <div class="flex items-center justify-between mt-6">
+        <button id="save" class="text-lg bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">Save result</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="mx-auto max-w-md mt-5">
+    <div id="bmi" class="text-xl bg-red-400 text-white text-center shadow-md rounded-lg px-8 pt-6 pb-6 mb-4 hidden">
+
+    </div>
+  </div>
+
+  <div class="mx-auto max-w-md mt-5">
+      <div id="data" class="text-xl bg-white text-gray-700  text-white text-center shadow-md rounded-lg px-8 pt-6 pb-6 mb-4 hidden">
+  
+      </div>
+    </div>
+
+
+    
+    
+        <div class="container">
+            <canvas id="myChart"></canvas>
+        </div>
+
+<script src="app.js"></script>
+</body>
+
+</html>
