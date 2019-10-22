@@ -18,7 +18,7 @@
         putToStorage() {
             if (localStorage !== undefined) {
                 if (localStorage.getItem("measurements") === null) {
-                    allMeasurements[this.dateNow] = this;
+                    allMeasurements[this.date] = this;
                     localStorage.setItem("measurements", JSON.stringify(allMeasurements));
                 }
                 else {
@@ -41,6 +41,20 @@
 
     let saveResults = document.getElementById("save");
 
+    function renderChart(data, labels) {
+        var ctx = document.getElementById("myChart").getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'BMI',
+                    data: data,
+                }]
+            },
+        });
+    }
+
     saveResults.addEventListener('click', function () {
         event.preventDefault();
         let height = document.getElementById("height");
@@ -62,9 +76,40 @@
         let previousData = getFromStorage();
         console.log(previousData);
 
-         for (const [key, value] of Object.entries(previousData)) {
-             console.log(value.bmi);
-         }
+        var result = [];
+        var dataBim = [];
+        var labels = [];
+         for (const [key, value] of Object.entries(previousData).sort()) {
+             //console.log(value.bmi);
+            console.log(key);
+            /*for(var i in value)
+            result.push([i,value[i]]);
+
+                console.log((JSON.stringify(result)));
+                */
+
+               dataBim.push(value.bmi);
+                labels.push(value.date);
+
+            }
+
+
+            
+                //data = [20000, 14000, 12000, 15000, 18000, 19000, 22000];
+                //labels =  ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
+                renderChart(dataBim, labels);
+            
     
     });
 })()
+
+
+
+/*
+$("#renderBtn").click(
+    function () {
+        data = [20000, 14000, 12000, 15000, 18000, 19000, 22000];
+        labels =  ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
+        renderChart(data, labels);
+    }
+);*/
